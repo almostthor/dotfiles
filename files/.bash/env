@@ -1,0 +1,5 @@
+export EDITOR="vim -w"
+export PATH=$PATH:~/bin
+
+# Colorize the Terminal
+export CLICOLOR=1;

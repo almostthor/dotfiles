@@ -1,0 +1,151 @@
+# Shell commands
+alias ..='cd ..'
+alias cdd='cd ~/Desktop'
+alias cdw='cd ~/Documents/workspace'
+# alias e='subl -w'
+alias e='vim'
+alias l='ls -Fh'
+alias ll='ls -lFh'
+alias o='open'
+alias reload='source ~/bin/dotfiles/bash/aliases'
+alias ea='e ~/bin/dotfiles/bash/aliases && reload'
+
+function take {
+  mkdir $1
+  cd $1
+}
+# Check your GMail using the provided Atom feed
+# Assumes your GMail is your primary email address for the current user
+# Also assumes that you've stored the password for your Google account in the keychain
+# You know what happens when you assume... makes an ass out of you and Uma Thurman
+gmail() {
+	user=`dscl . -read /Users/$(whoami)|grep "EMailAddress:"|sed 's/^EMailAddress: //'`
+	pass=$(security find-internet-password -w -a "$user" -s "accounts.google.com")
+	# curl -u "$user:$pass" --silent "https://mail.google.com/mail/feed/atom"| perl -ne '
+	curl -u "philip.nelson@roundcorner.com:h1sfaja!" --silent "https://mail.google.com/mail/feed/atom"| perl -ne '
+		print "Subject: $1 " if /<title>(.+?)<\/title>/ && $title++;
+		print "(from $1)\n" if /<email>(.+?)<\/email>/;
+	'
+}
+
+# From Chris Wanstrath
+function pless() { 
+    pygmentize -f terminal -g $1 | less -r
+}
+
+# Spotlight #
+alias sl='mdfind'
+
+# Start Jenkins Build
+function jbuild() {
+    if [ "$1" == "umn" ]; then
+        if [ "$2" == "integration" ]; then
+            open http://oit-crmdata-test.oit.umn.edu:8080/job/UMNCRM_4_Integration/build?delay=0sec
+        elif [ "$2" == "uat" ]; then
+            open http://oit-crmdata-test.oit.umn.edu:8080/job/UMNCRM_3_UAT/build?delay=0sec
+        elif [ "$2" == "staging" ]; then
+            open http://oit-crmdata-test.oit.umn.edu:8080/job/UMNCRM_2_Staging/build?delay=0sec
+        elif [ "$2" == "production" ]; then
+            open http://oit-crmdata-test.oit.umn.edu:8080/job/UMNCRM_1_Production/build?delay=0sec
+        else
+            echo 'Target not defined'
+        fi
+    else
+        echo 'Customer not defined'
+    fi
+}
+
+### Git ###
+concise_logging_format='--pretty=format:%Cblue%h%Creset %cr %Cgreen%an%Creset %s'
+
+alias ga='git add'
+alias gb='git branch'
+alias gc='git commit'
+alias gd='git diff'
+alias gl='git log --name-only'
+alias gitlc='git log "$concise_logging_format"'
+alias gll='gl -1 | pbcopy'
+alias gs='git status -s'
+alias gub='git fetch origin integration && git rebase origin/integration'
+
+# Commit pending changes and quote all args as message
+function gg() {
+    git commit -v -a -m "$*"
+}
+
+# Hide files that I want to treat as unchanged.
+function ghp() {
+    gs | grep -o 'src/.*' >> unchanged-paths.txt
+    cat unchanged-paths.txt | git update-index --assume-unchanged --stdin
+}
+
+# Show files that were treated as unchanged.
+function gsp() {
+    cat unchanged-paths.txt | git update-index --no-assume-unchanged --stdin
+    rm unchanged-paths.txt
+}
+
+# Opens the github page for the current git repository in your browser
+# git@github.com:jasonneylon/dotfiles.git
+# https://github.com/jasonneylon/dotfiles/
+function gh() {
+    giturl=$(git config --get remote.origin.url)
+	if [ "$giturl" == "" ]
+	    then
+		echo "Not a git repository or no remote.origin.url set"
+		exit 1;
+	fi
+
+    gitbranch=$(git branch | grep '*')
+	if [ "$gitbranch" == "" ]
+	    then
+		echo "Not in a git repository"
+		exit 1;
+	fi
+
+    giturl=${giturl/git\@github\.com\:/https://github.com/}
+    giturl=${giturl/\.git//}
+    gitbranch=${gitbranch/* //}
+    echo $giturl'tree'$gitbranch
+    open $giturl'tree'$gitbranch
+}
+
+# TaskPaper
+function newtp() {
+    touch $1.taskpaper
+    open $1.taskpaper
+}
+
+# Day One
+alias log="~/bin/logtodayone.rb"
+
+# experimental wrapper for git to log commits to Day One
+# lots of credit to http://nnutter.com/2012/01/git-todo/
+# via http://brettterpstra.com/logging-with-day-one-geek-style/
+function cdo(){
+  msg=$*
+  GIT_DIR=$(git rev-parse --show-toplevel)
+  if ! (( $? )); then
+      GIT_DIR=$(echo "$GIT_DIR" | awk -F/ '{nlast = NF;print $nlast}')
+      if [ -z "$GIT_DIR" ]; then
+                path=$(pwd)
+                GIT_DIR=${path##*/}
+      fi
+            ~/bin/logtodayone.rb "@$GIT_DIR $msg"
+  fi
+
+  git commit -am "$msg"
+}
+
+# Harvest
+alias hclw='ol roundcorner.harvestapp.com'
+
+# Miscellaneous
+function ol() {
+	open http://$@
+}
+
+# search using Spotlight (e.g. 'sl openmeta kind:pdf')
+function sl() {
+  /usr/bin/mdfind -onlyin \. $@
+}

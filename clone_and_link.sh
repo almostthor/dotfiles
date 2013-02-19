@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd &&
-[ -d '.dot-files' ] || git clone git://github.com/almostthor/dotfiles.git .dotfiles &&
+[ -d '.dotfiles' ] || git clone git://github.com/almostthor/dotfiles.git .dotfiles &&
 ls -1d .dotfiles/files/* .dotfiles/files/.* | while read f; do
   [ "$f" == '.dotfiles/files/.' ] ||
   [ "$f" == '.dotfiles/files/..' ] ||

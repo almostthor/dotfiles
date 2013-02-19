@@ -1,0 +1,21 @@
+
+# Use Vi commands
+set -o vi
+
+# Set colors in terminal
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
+
+NO_COLOR='\e[0m'
+RED='\e[0;31m'
+EBLACK='\e[1;30m'
+
+# PS1="\[$RED\]\h\[$NO_COLOR\]:\W $ "
+
+
+# Git tab completion
+# source ~/bin/git-completion.bash
+# Show branch in status line
+# PS1='[\W$(__git_ps1 " \[$RED\](%s)\[$NO_COLOR\]")]\$ '
+PS1='> '
+export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
