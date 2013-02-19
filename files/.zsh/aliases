@@ -5,7 +5,7 @@ else
   alias ls='ls --color=auto'
   alias du='du -k --max-depth=1 $argv'
 fi
-alias reload='source ~/.dotfiles/.zsh/aliases; source ~/.dotfiles/.zsh/aliases'
+alias reload='source ~/.dotfiles/.zsh/aliases; source ~/.dotfiles/.zsh/git_aliases'
 
 alias l='ls'
 alias ll='ls -lh'
