@@ -1,3 +1,8 @@
 cd() {
   builtin cd "$@" && ls
 }
+
+# From Chris Wanstrath
+function pless() {
+    pygmentize -f terminal -g $1 | less -r
+}
