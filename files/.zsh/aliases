@@ -27,3 +27,4 @@ alias tigs='tig status $argv'
 
 alias add_alias='e ~/.zsh/aliases; reload; cd ~/.dotfiles; ga files/.zsh/aliases; gc'
 alias git_alias='e ~/.zsh/git_aliases; reload; cd ~/.dotfiles; ga files/.zsh/git_aliases; gc'
+alias view_alias='less ~/.zsh/aliases'
