@@ -5,9 +5,6 @@
 	helper = osxkeychain
 [color]
 	ui = true
-	diff = auto
-	status = auto
-	branch = auto
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
