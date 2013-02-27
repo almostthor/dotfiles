@@ -44,6 +44,7 @@ gls() {
   shift
   glog --pickaxe-regex "-S$query" "$@"
 }
+alias gll='git log -1 --no-color --name-only | pbcopy'
 alias gm='git merge --no-ff'
 alias gmf='git merge --ff-only'
 alias gmfthis='gmf origin/$(git_current_branch)'
@@ -67,4 +68,16 @@ gupstation() {
   gup
   gf production
   gf staging
+}
+
+# Hide files that I want to treat as unchanged.
+function ghp() {
+    git status -s | grep -o 'src/.*' >> unchanged-paths.txt
+    cat unchanged-paths.txt | git update-index --assume-unchanged --stdin
+}
+
+# Show files that were treated as unchanged.
+function gsp() {
+    cat unchanged-paths.txt | git update-index --no-assume-unchanged --stdin
+    rm unchanged-paths.txt
 }
