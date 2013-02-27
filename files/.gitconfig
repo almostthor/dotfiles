@@ -14,7 +14,7 @@
 [push]
 	default = upstream
 [core]
-	excludesfile = /Users/philip/.gitignore
+	excludesfile = /Users/philip/.gitignore_global
 [github]
 	user = almostthor
 	
