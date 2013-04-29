@@ -72,12 +72,15 @@ gupstation() {
 
 # Hide files that I want to treat as unchanged.
 function ghp() {
-    git status -s | grep -o 'src/.*' >> unchanged-paths.txt
-    cat unchanged-paths.txt | git update-index --assume-unchanged --stdin
+    # git status -s | grep -o 'src/.*' >> unchanged-paths.txt
+    # cat unchanged-paths.txt | git update-index --assume-unchanged --stdin
+    git status -s | grep -o '"src/.*' | git update-index --assume-unchanged --stdin
+    git status -s | grep -o 'src/.*' | git update-index --assume-unchanged --stdin
 }
 
 # Show files that were treated as unchanged.
 function gsp() {
-    cat unchanged-paths.txt | git update-index --no-assume-unchanged --stdin
-    rm unchanged-paths.txt
+    # cat unchanged-paths.txt | git update-index --no-assume-unchanged --stdin
+    # rm unchanged-paths.txt
+    git ls-files -v | grep \^"[a-z]" | sed 's/^..//' | git update-index --no-assume-unchanged --stdin
 }
