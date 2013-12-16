@@ -1,17 +1,17 @@
 {
 	"color_scheme": "Packages/User/Solarized (dark).tmTheme",
 	"font_face": "Menlo",
-	"font_size": 13,
+	"font_size": 12,
 	"highlight_line": true,
+	"highlight_modified_tabs": true,
 	"hot_exit": false,
 	"ignored_packages":
 	[
 		"Markdown"
 	],
+	"soda_classic_tabs": true,
 	"soda_folder_icons": true,
 	"theme": "Soda Light 3.sublime-theme",
-	"soda_classic_tabs": true,
-	"highlight_modified_tabs": true,
 	"vintage_ctrl_keys": true,
 	"vintage_start_in_command_mode": true
 }
