@@ -4,11 +4,11 @@ alias cdd='cd ~/Desktop'
 alias cdw='cd ~/Documents/workspace'
 # alias e='subl -w'
 alias e='vim'
-alias l='ls -aFh'
+alias l='ls -Fh'
 alias ll='ls -lFh'
 alias o='open'
-alias reload='source ~/bin/dotfiles/bash/aliases'
-alias ea='e ~/bin/dotfiles/bash/aliases && reload'
+alias reload='source ~/.bash/aliases'
+alias ea='e ~/.bash/aliases && reload'
 
 function take {
   mkdir $1
