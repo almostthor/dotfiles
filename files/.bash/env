@@ -1,5 +1,17 @@
-export EDITOR="vim -w"
-export PATH=$PATH:~/bin
+# Set my prefered editor
+export EDITOR="subl -w"
+
+# Use my apps first
+export PATH="~/bin:$PATH"
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
 
 # Colorize the Terminal
 export CLICOLOR=1;
+
+### To use Homebrew's directories rather than ~/.rbenv add to your profile:
+export RBENV_ROOT=/usr/local/var/rbenv
+
+### To enable shims and autocompletion add to your profile:
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi

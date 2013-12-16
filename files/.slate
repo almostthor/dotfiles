@@ -1,14 +1,18 @@
-# This is the default .slate file.
-# If no ~/.slate file exists this is the file that will be used.
-
+# Configs
 config defaultToCurrentScreen true
 config nudgePercentOf screenSize
 config resizePercentOf screenSize
+
+# Monitor Aliases
+
+alias mon-laptop      1440x900
+alias mon-thunderbolt 2560x1440
 
 # Abstract Positions
 alias full          move screenOriginX;screenOriginY  screenSizeX;screenSizeY
 alias rightmost     move screenOriginX+screenSizeX*0.3;screenOriginY  screenSizeX*0.7;screenSizeY
 alias leftmost      move screenOriginX;screenOriginY  screenSizeX*0.7;screenSizeY
+alias 720p			move screenOriginX;screenOriginY  1280;720
 
 # Resize Bindings
 # bind right:alt       resize +10% +0
@@ -33,8 +37,8 @@ alias leftmost      move screenOriginX;screenOriginY  screenSizeX*0.7;screenSize
 # bind down:shift;alt  nudge +0   +10%
 
 # Throw Bindings
-# bind 1:ctrl;alt         throw 0 resize
-# bind 2:ctrl;alt         throw 1 resize
+bind 1:ctrl;alt;cmd         throw 0 resize
+bind 2:ctrl;alt;cmd         throw 1 
 # bind 3:ctrl;alt         throw 2 resize
 # bind right:ctrl;alt;cmd throw right resize
 # bind left:ctrl;alt;cmd  throw left  resize
@@ -43,6 +47,7 @@ alias leftmost      move screenOriginX;screenOriginY  screenSizeX*0.7;screenSize
 bind l:ctrl;alt;cmd ${rightmost}
 bind h:ctrl;alt;cmd ${leftmost}
 bind space:ctrl;alt;cmd ${full}
+bind 7:ctrl;alt;cmd ${720p}
 
 # Focus Bindings
 # bind right:cmd    focus right

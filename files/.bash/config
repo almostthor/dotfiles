@@ -15,7 +15,8 @@ EBLACK='\e[1;30m'
 
 # Git tab completion
 # source ~/bin/git-completion.bash
+source ~/bin/git-prompt.sh
 # Show branch in status line
-# PS1='[\W$(__git_ps1 " \[$RED\](%s)\[$NO_COLOR\]")]\$ '
-PS1='> '
+PS1='[\W$(__git_ps1 " \[$RED\](%s)\[$NO_COLOR\]")]\$ '
+# PS1='> '
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'

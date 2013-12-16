@@ -17,4 +17,18 @@
 	excludesfile = /Users/philip/.gitignore_global
 [github]
 	user = almostthor
-	
+[color "branch"]
+	current = yellow black
+	local = yellow
+	remote = magenta
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red reverse
+	new = green reverse
+	whitespace = white reverse
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan reverse
+	branch = magenta	
