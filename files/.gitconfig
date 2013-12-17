@@ -15,6 +15,7 @@
 	default = upstream
 [core]
 	excludesfile = /Users/philip/.gitignore_global
+	editor = vim
 [github]
 	user = almostthor
 [color "branch"]
