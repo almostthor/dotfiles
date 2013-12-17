@@ -1,3 +1,4 @@
+#!/bin/bash
 export color_none='\e[0m'
 export color_white='\e[1;37m'
 export color_black='\e[0;30m'

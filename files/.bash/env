@@ -1,5 +1,6 @@
+#!/bin/bash
 # Set my prefered editor
-export EDITOR="subl -w"
+export EDITOR="vim -w"
 
 # Use my apps first
 export PATH="~/bin:$PATH"

@@ -1,4 +1,4 @@
-
+#!/bin/bash
 # Use Vi commands
 set -o vi
 
