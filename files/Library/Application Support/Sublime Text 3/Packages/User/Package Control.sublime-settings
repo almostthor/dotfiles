@@ -2,6 +2,7 @@
 	"installed_packages":
 	[
 		"Alignment",
+		"Gist",
 		"Indent XML",
 		"MarkdownEditing",
 		"Slate",
