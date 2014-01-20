@@ -13,6 +13,7 @@ alias full          move screenOriginX;screenOriginY  screenSizeX;screenSizeY
 alias rightmost     move screenOriginX+screenSizeX*0.3;screenOriginY  screenSizeX*0.7;screenSizeY
 alias leftmost      move screenOriginX;screenOriginY  screenSizeX*0.7;screenSizeY
 alias 720p			move screenOriginX;screenOriginY  1280;720
+alias center		move (screenSizeX-windowSizeX)/2;(screenSizeY-windowSizeY)/2 windowSizeX;windowSizeY
 
 # Resize Bindings
 # bind right:alt       resize +10% +0
@@ -48,6 +49,7 @@ bind l:ctrl;alt;cmd ${rightmost}
 bind h:ctrl;alt;cmd ${leftmost}
 bind space:ctrl;alt;cmd ${full}
 bind 7:ctrl;alt;cmd ${720p}
+bind c:ctrl;alt;cmd ${center}
 
 # Focus Bindings
 # bind right:cmd    focus right
