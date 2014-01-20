@@ -4,7 +4,7 @@ alias ..='cd ..'
 alias cdd='cd ~/Desktop'
 alias cdw='cd ~/Documents/workspace'
 alias e='vim'
-alias s='subl -a'
+alias s='subl -an'
 alias l='ls -Fh'
 alias ll='ls -lFh'
 alias lla='ls -alFh'
@@ -137,4 +137,13 @@ function ol() {
 # search using Spotlight (e.g. 'sl openmeta kind:pdf')
 function sl() {
   /usr/bin/mdfind -onlyin \. $@
+}
+
+# http://apple.stackexchange.com/questions/15318/using-terminal-to-copy-a-file-to-clipboard
+file-to-clipboard() {
+    osascript \
+        -e 'on run args' \
+        -e 'set the clipboard to POSIX file (first item of args)' \
+        -e end \
+        "$@"
 }
