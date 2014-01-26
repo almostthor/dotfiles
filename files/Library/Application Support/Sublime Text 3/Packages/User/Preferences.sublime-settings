@@ -1,7 +1,7 @@
 {
 	"color_scheme": "Packages/User/Solarized (dark).tmTheme",
 	"font_face": "Menlo",
-	"font_size": 16,
+	"font_size": 13,
 	"highlight_modified_tabs": true,
 	"hot_exit": false,
 	"ignored_packages":
