@@ -147,3 +147,14 @@ file-to-clipboard() {
         -e end \
         "$@"
 }
+
+# Hide Desktop / Show Desktop
+function dicons() {
+  if [ "$1" == "hide" ]; then
+    defaults write com.apple.finder CreateDesktop -bool false && killall Finder
+  elif [ "$1" == "show" ]; then
+    defaults write com.apple.finder CreateDesktop -bool true && killall Finder
+  else
+    echo "Requires argument hide or show"
+  fi
+}
