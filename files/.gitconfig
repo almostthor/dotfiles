@@ -33,3 +33,6 @@
 	changed = green
 	untracked = cyan reverse
 	branch = magenta	
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f

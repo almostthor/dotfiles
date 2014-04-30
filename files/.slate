@@ -49,7 +49,7 @@ bind l:ctrl;alt;cmd ${rightmost}
 bind h:ctrl;alt;cmd ${leftmost}
 bind space:ctrl;alt;cmd ${full}
 bind 7:ctrl;alt;cmd ${720p}
-bind c:ctrl;alt;cmd ${center}
+bind k:ctrl;alt;cmd ${center}
 
 # Focus Bindings
 # bind right:cmd    focus right
