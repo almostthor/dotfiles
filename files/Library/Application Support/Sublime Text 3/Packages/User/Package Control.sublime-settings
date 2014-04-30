@@ -3,9 +3,12 @@
 	[
 		"Alignment",
 		"Gist",
+		"Glue",
 		"Indent XML",
 		"MarkdownEditing",
+		"PlainTasks",
 		"Slate",
+		"Theme - Flatland",
 		"Theme - Soda",
 		"Theme - Sodarized"
 	]

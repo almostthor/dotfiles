@@ -1,13 +1,18 @@
 {
 	"mm_workspace" : "/Users/philip/projects",
 
+	//set to desired Salesforce.com API version (tooling api functionality requires 27.0+)
+	"mm_api_version" : "29.0",
+
 	//if true, MavensMate will scroll to the line of a reported exception when there is a compilation error
 	"mm_compile_scroll_to_error": true,
 
 	//ignore metadata from managed packages (highly recommended)
 	"mm_ignore_managed_metadata" : false,
 
-	//set to true to use the tooling api to compile apex metadata (if you're experiencing any compile issues, set this to false to use the metadata api)
-	"mm_compile_with_tooling_api" : false
+	//if true, MavensMate will capture the save file operation and compile to the Salesforce.com server automatically
+	"mm_compile_on_save" : true,
 
+	//set to true to use the tooling api to compile apex metadata (if you're experiencing any compile issues, set this to  to use the metadata api)
+	"mm_compile_with_tooling_api" : false
 }
